@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Student EduScore</title>
+
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        />
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+
+    </head>
+
+    <body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i><span>Student Performance Prediction</span>
+            </div>
+
+            <ul>
+                <a href="#" class="active"><li>Home</li></a>
+                <a href="Services.html"><li>Prediction</li></a>
+            </ul>
+        </nav>
+
+        <div class="form-container">
+            <form class="form" action="{{ url_for('predict_datapoint')}}" method="POST">
+                <h2>Student Performance Prediction</h2>
+                
+
+                <div class="input-group">
+                    <label for="hours_studied">No of Hours Studied:</label>
+                    <input type="number" id="hours_studied" name="hours_studied" min="0" max="9" required placeholder="Number of hours studied">
+                </div>
+
+
+                <div class="input-group">
+                    <label for="previous_scores">Previous Score:</label>
+                    <input type="number" id="previous_scores" name="previous_scores" min="0" max="100" required placeholder="Number of hours studied">
+                </div>
+
+
+                <div class="input-group">
+                    <label for="extracurricular_activities">Extracurricular Activities:</label>
+                    <select id="extracurricular_activities" name="extracurricular_activities" required>
+                        <option selected disabled value="">Select Yes or No</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="sleep_hours">Sleep Hours:</label>
+                    <input type="number" id="sleep_hours" name="sleep_hours" min="0" max="9" required placeholder="Sleep Hours">
+                </div>
+
+
+                <div class="input-group">
+                    <label for="sample_question_papers_practiced">Number of Sample Question Papers practiced:</label>
+                    <input type="number" id="sample_question_papers_practiced" name="sample_question_papers_practiced" min="0" max="9" required placeholder="Number of Sample Question Papers">
+                </div>
+
+                
+                <button type="submit" value="Predict your Performance Index">Predict</button>
+
+                <h2>
+                    The Predicted Performance Index Score is {{results}}
+                </h2>
+            </form>
+    
+            
+        </div>
+    </header>
+   <body>
+</html>

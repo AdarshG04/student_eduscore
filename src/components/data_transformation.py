@@ -25,13 +25,13 @@ class DataTransformation:
     def get_data_transformer_object(self):
 
         '''
-        This function is used for data tranasformation
+        This function is used for data transformation
         '''
 
         try:
-            numerical_columns = ["Hours Studied", "Previous Scores", "Sleep Hours", "Sample Question Papers Practiced"]
+            numerical_columns = ["hours_studied", "previous_scores", "sleep_hours", "sample_question_papers_practiced"]
             categorical_columns = [
-                "Extracurricular Activities",
+                "extracurricular_activities",
             ]
 
             num_pipeline= Pipeline(
@@ -79,8 +79,8 @@ class DataTransformation:
 
             preprocessing_obj=self.get_data_transformer_object()
 
-            target_column_name="Performance Index"
-            numerical_columns = ["Hours Studied", "Previous Scores", "Sleep Hours", "Sample Question Papers Practiced"]
+            target_column_name="performance_index"
+            numerical_columns = ["hours_studied", "previous_scores", "sleep_hours", "sample_question_papers_practiced"]
 
             input_feature_train_df=train_df.drop(columns=[target_column_name],axis=1)
             target_feature_train_df=train_df[target_column_name]
